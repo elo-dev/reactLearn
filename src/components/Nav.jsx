@@ -1,8 +1,9 @@
 import React from 'react'
+import style from './Nav.module.css'
 
 const Nav = () => {
     return (
-        <nav className="App-nav">
+        <nav className={style.nav}>
             <ul>
                 <li><a>Profile</a></li>
                 <li><a>Message</a></li>

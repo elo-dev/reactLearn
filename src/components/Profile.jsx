@@ -1,10 +1,11 @@
 import React from 'react'
+import style from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <main className="App-content-wrapper">
+        <main className={style.profile}>
           <section className="App-content">
-            <div className="avatar">
+            <div className={style.avatar}>
               <img src="https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"></img>
             </div>
             <div>
