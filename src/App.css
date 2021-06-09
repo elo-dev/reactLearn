@@ -7,3 +7,7 @@
   "h h"
   "n c";
 }
+
+.App-wrapper-content{
+  grid-area: c;
+}

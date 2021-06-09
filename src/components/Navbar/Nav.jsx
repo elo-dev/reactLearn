@@ -5,8 +5,8 @@ const Nav = () => {
     return (
         <nav className={style.nav}>
             <ul>
-                <li><a>Profile</a></li>
-                <li><a>Message</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/dialogs">Message</a></li>
                 <li><a>News</a></li>
                 <li><a>Music</a></li>
                 <li><a>Settings</a></li>

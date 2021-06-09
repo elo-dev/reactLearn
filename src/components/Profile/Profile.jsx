@@ -4,7 +4,7 @@ import style from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <main className={style.profile}>
+        <main>
           <section className="App-content">
             <div className={style.avatar}>
               <img src="https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"></img>
