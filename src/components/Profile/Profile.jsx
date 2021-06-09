@@ -1,4 +1,5 @@
 import React from 'react'
+import MyPosts from './MyPosts/MyPosts'
 import style from './Profile.module.css'
 
 const Profile = () => {
@@ -11,20 +12,7 @@ const Profile = () => {
             <div>
               ava+descr
             </div>
-            <div>
-              My Posts
-              <div>
-                New Posts
-              </div>
-              <div className="posts">
-                <div className="posts-item">
-                  item
-                </div>
-                <div className="posts-item">
-                  item
-                </div>
-              </div>
-            </div>
+            <MyPosts />
           </section>
         </main>
     )

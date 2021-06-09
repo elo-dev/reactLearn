@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from './components/Header'
-import Nav from './components/Nav'
-import Prfile from './components/Profile'
+import Header from './components/Header/Header'
+import Nav from './components/Navbar/Nav'
+import Profile from './components/Profile/Profile'
 import './App.css';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App-wrapper">
       <Header />
       <Nav />
-      <Prfile /> 
+      <Profile /> 
     </div>
   );
 }
