@@ -1,17 +1,13 @@
 import React from 'react'
 import MyPosts from './MyPosts/MyPosts'
 import style from './Profile.module.css'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 const Profile = () => {
     return (
         <main>
           <section className="App-content">
-            <div className={style.avatar}>
-              <img src="https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"></img>
-            </div>
-            <div>
-              ava+descr
-            </div>
+            <ProfileInfo />
             <MyPosts />
           </section>
         </main>

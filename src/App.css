@@ -1,4 +1,9 @@
+*{
+  padding: 0;
+}
+
 .App-wrapper{
+  width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-rows: 60px 1fr;

@@ -1,3 +1,13 @@
 .nav{
     grid-area: n;
 }
+
+.nav li{
+    list-style: none;
+}
+
+.nav a{
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+}

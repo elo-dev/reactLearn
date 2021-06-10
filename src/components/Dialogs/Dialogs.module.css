@@ -1,0 +1,14 @@
+.wrapperDialogs{
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    grid-template-areas: 
+    "ud md";
+}
+
+.usersDialogs{
+    grid-area: ud;
+}
+
+.messagesDialogs{
+    grid-area: md;
+}
