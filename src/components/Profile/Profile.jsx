@@ -3,14 +3,12 @@ import MyPosts from './MyPosts/MyPosts'
 import style from './Profile.module.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-const Profile = () => {
+const Profile = (props) => {
     return (
-        <main>
-          <section className="App-content">
+          <section className="profileWrapper">
             <ProfileInfo />
-            <MyPosts />
+            <MyPosts posts={props.posts} />
           </section>
-        </main>
     )
 }
 
