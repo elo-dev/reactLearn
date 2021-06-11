@@ -5,3 +5,26 @@
 .posts{
     margin-top: 20px;
 }
+
+.createNewPost{
+    margin-top: 20px;
+}
+
+.textAreaNewPost{
+    display: block;
+}
+
+.btnAddNewPost{
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.btnAddNewPost:hover{
+    background-color: antiquewhite;
+    color: black;
+    transition-duration: .3s;
+}

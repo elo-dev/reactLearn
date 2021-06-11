@@ -5,7 +5,8 @@ import style from './DialogItem.module.css'
 const DialogItem = (props) => {
     return(
         <div className={style.dialogPerson}>
-            <NavLink activeClassName={style.dialogPersonLink} to={"/dialogs/" + props.id}>{props.name}</NavLink>
+                <img src="https://img.icons8.com/color/452/avatar.png"></img>
+                <NavLink activeClassName={style.dialogPersonLink} to={"/dialogs/" + props.id}>{props.name}</NavLink>
         </div>
     )
 }

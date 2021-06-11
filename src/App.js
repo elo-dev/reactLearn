@@ -12,10 +12,10 @@ function App(props) {
     <BrowserRouter>
       <div className="App-wrapper">
         <Header />
-        <Nav />
+        <Nav state={props.state.sideBar} />
           <main className="App-wrapper-content">
             <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />} />
-            <Route path='/profile' render={() => <Profile state={props.state.profilePage} />} />
+            <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost} />} />
           </main>
       </div>
     </BrowserRouter>

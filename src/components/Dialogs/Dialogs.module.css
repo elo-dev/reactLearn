@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: 3fr 9fr;
     grid-template-areas: 
-    "ud md";
+    "ud md"
+    ". nm";
 }
 
 .usersDialogs{
@@ -11,4 +12,37 @@
 
 .messagesDialogs{
     grid-area: md;
+    width: 700px;
+}
+
+.usersDialogs h2{
+    margin-bottom: 30px;
+}
+
+.messagesDialogs h2{
+    margin-bottom: 30px;
+}
+
+.btnAddNewMessage{
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.btnAddNewMessage:hover{
+    background-color: antiquewhite;
+    color: black;
+    transition-duration: .3s;
+}
+
+.newMessageWrapper{
+    grid-area: nm;
+    margin-top: 30px;
+}
+
+.textAreaMessage{
+    display: block;
 }

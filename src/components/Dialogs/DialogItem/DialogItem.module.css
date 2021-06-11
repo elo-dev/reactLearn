@@ -1,7 +1,17 @@
+.dialogPerson:not(:first-of-type){
+    margin-top: 20px;
+}
+
 .dialogPerson a{
     text-decoration: none;
     color: black;
     font-size: 18px;
+    vertical-align: middle;
+}
+
+.dialogPerson img{
+    width: 55px;
+    vertical-align: middle;
 }
 
 .dialogPersonLink{

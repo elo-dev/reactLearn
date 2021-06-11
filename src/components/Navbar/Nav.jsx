@@ -1,8 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import FriendsItems from './Friends/FriendsItems'
 import style from './Nav.module.css'
+import styleFriends from './Friends/FriendsItems.module.css'
 
-const Nav = () => {
+const Nav = (props) => {
+
+    let friendsElement = props.state.friends.map(f => <FriendsItems id={f.id} name={f.name} />)
+
     return (
         <nav className={style.nav}>
             <ul>
@@ -12,6 +17,13 @@ const Nav = () => {
                 <li><a>Music</a></li>
                 <li><a>Settings</a></li>
             </ul>
+
+            <div className={styleFriends.navFriendsWrapper}>
+                <h2>Friends</h2>
+                <div className={styleFriends.itemsWrapper}>
+                    {friendsElement}
+                </div>
+            </div>
         </nav>
     )
 }

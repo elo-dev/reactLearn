@@ -2,6 +2,10 @@
     grid-area: n;
 }
 
+.nav li:not(:first-of-type){
+    margin-top: 10px;
+}
+
 .nav li{
     list-style: none;
 }

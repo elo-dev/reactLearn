@@ -8,6 +8,13 @@ const Dialogs = (props) => {
     let messagesElements = props.state.messages.map(m => <MessageItem message={m.message} id={m.id} />)
     let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
 
+    let currentValueMessage = React.createRef()
+
+    let addMessage = () => {
+        let text = currentValueMessage.current.value
+        alert(text)
+    }
+
     return(
         <div className={style.wrapperDialogs}>
 
@@ -19,6 +26,11 @@ const Dialogs = (props) => {
             <div className={style.messagesDialogs}>
                 <h2>Messages</h2>
                 {messagesElements}
+            </div>
+
+            <div className={style.newMessageWrapper}>
+                <textarea className={style.textAreaMessage} ref={currentValueMessage} />
+                <button className={style.btnAddNewMessage} onClick={addMessage}>Add message</button>
             </div>
 
         </div>

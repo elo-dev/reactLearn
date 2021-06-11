@@ -1,0 +1,23 @@
+.messageRecipient p,
+.messageSender p{
+    max-width: 280px;
+    background-color: rgba(192, 192, 192, 0.5);
+    border-radius: 15px;
+    word-wrap: break-word; 
+    padding: 5px 10px 5px 10px;
+}
+
+.messageSender p{
+    background-color: rgba(201, 255, 255, .6);
+}
+
+.messageRecipient{
+    float: left;
+    clear: both;
+}
+
+.messageSender{
+    float: right;
+    clear: both;
+    margin-top: 20px;
+}

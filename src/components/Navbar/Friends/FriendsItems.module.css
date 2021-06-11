@@ -1,0 +1,29 @@
+.navFriendsWrapper{
+    margin-top: 30px;
+}
+
+.navFriendsWrapper h2{
+    margin-bottom: 10px;
+}
+
+.itemsWrapper{
+    display: flex;
+    max-width: 190px;
+    overflow: hidden;
+}
+
+.item:nth-child(-n+3){
+    margin-right: 17.5px;
+}
+
+.item img{
+    width: 50px;
+}
+
+.itemName a{
+    font-size: 17px !important;
+}
+
+.itemName{
+    text-align: center;
+}
