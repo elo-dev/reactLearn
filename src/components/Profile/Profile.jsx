@@ -7,7 +7,10 @@ const Profile = (props) => {
     return (
           <section className="profileWrapper">
             <ProfileInfo />
-            <MyPosts posts={props.state.posts} addPost={props.addPost}/>
+            <MyPosts posts={props.profilePage.posts}
+                     newPostText={props.profilePage.newPostText}
+                     changeNewPost={props.changeNewPost}
+                     addPost={props.addPost} />
           </section>
     )
 }

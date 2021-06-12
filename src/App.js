@@ -7,15 +7,15 @@ import './App.css';
 import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
-function App(props) {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="App-wrapper">
         <Header />
         <Nav state={props.state.sideBar} />
           <main className="App-wrapper-content">
-            <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />} />
-            <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost} />} />
+            <Route path='/dialogs' render={() => <Dialogs dialogsPage={props.state.dialogsPage} addMessage={props.addMessage} changeNewMessage={props.changeNewMessage} />} />
+            <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage} addPost={props.addPost} changeNewPost={props.changeNewPost} />} />
           </main>
       </div>
     </BrowserRouter>
