@@ -1,4 +1,5 @@
 let store = {
+
     _state: {
         profilePage: {
             posts: [
@@ -32,48 +33,42 @@ let store = {
             ]
         }
     },
-
-    getState(){
-        return this._state
-    },
-
     _renderTree(){
         console.log('State was changed')
     },
 
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            like: 0
-        }
-        this._state.profilePage.posts.push(newPost)
-        this._state.profilePage.newPostText = ''
-        this._renderTree(this._state)
+    getState(){
+        return this._state
     },
-
-    changeNewPostText(newText) {
-        this._state.profilePage.newPostText = newText
-        this._renderTree(this._state)
-    },
-
-    addMessage() {
-        let newMessage = {
-            id: 4,
-            message: this._state.dialogsPage.newMessageText
-        }
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMessageText = ''
-        this._renderTree(this._state)
-    },
-
-    changeNewMessageText(newMessage) {
-        this._state.dialogsPage.newMessageText = newMessage
-        this._renderTree(this._state)
-    },
-
     subscribe(observer) {
         this._renderTree = observer
+    },
+
+    dispatch(action){
+        if(action.type === 'ADD-POST'){
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                like: 0
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._renderTree(this._state)
+        } else if(action.type === 'CHANGE-NEW-POST-TEXT'){
+            this._state.profilePage.newPostText = action.newText
+            this._renderTree(this._state)
+        } else if(action.type === 'ADD-MESSAGE'){
+            let newMessage = {
+                id: 4,
+                message: this._state.dialogsPage.newMessageText
+            }
+            this._state.dialogsPage.messages.push(newMessage)
+            this._state.dialogsPage.newMessageText = ''
+            this._renderTree(this._state)
+        } else if(action.type === 'CHANGE-NEW-MESSAGE-TEXT'){
+            this._state.dialogsPage.newMessageText = action.newMessage
+            this._renderTree(this._state)
+        }
     }
 }
 
