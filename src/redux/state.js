@@ -1,5 +1,6 @@
-const ADD_POST = 'ADD-POST'
-const CHANGE_NEW_POST_TEXT = 'CHANGE-NEW-POST-TEXT'
+import dialogsReducer from './dialogsReducer'
+import profileReducer from './profileReducer'
+import sideBarReducer from './sideBarReducer'
 
 let store = {
 
@@ -48,57 +49,12 @@ let store = {
     },
 
     dispatch(action){
-        if(action.type === 'ADD-POST'){
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                like: 0
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._renderTree(this._state)
-        } else if(action.type === 'CHANGE-NEW-POST-TEXT'){
-            this._state.profilePage.newPostText = action.newText
-            this._renderTree(this._state)
-        } else if(action.type === 'ADD-MESSAGE'){
-            let newMessage = {
-                id: 4,
-                message: this._state.dialogsPage.newMessageText
-            }
-            this._state.dialogsPage.messages.push(newMessage)
-            this._state.dialogsPage.newMessageText = ''
-            this._renderTree(this._state)
-        } else if(action.type === 'CHANGE-NEW-MESSAGE-TEXT'){
-            this._state.dialogsPage.newMessageText = action.newMessage
-            this._renderTree(this._state)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.sideBar = sideBarReducer(this._state.sideBar, action)
+
+        this._renderTree(this._state)
     }
 }
-
-export const addMessageActionCreator = () => {
-    return {
-        type: 'ADD-MESSAGE'
-    }
-}
-
-export const onMessageChangeActionCreator = (text) => {
-    return {
-        type: 'CHANGE-NEW-MESSAGE-TEXT',
-        newMessage: text
-    }
-}
-
-export const addPostActionCreator = () => {
-    return {
-      type: ADD_POST
-    }
-  }
-  
-export const onPostChangeActionCreator = (text) => {
-    return {
-      type: CHANGE_NEW_POST_TEXT,
-      newText: text
-    }
-  }
 
 export default store
