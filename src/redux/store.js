@@ -29,7 +29,7 @@ let store = {
             newMessageText: 'Hello'
         },
     
-        sideBar:{
+        sideBar: {
             friends: [
                 {id: 1, name: 'Dima'},
                 {id: 2, name: 'Andrey'},
