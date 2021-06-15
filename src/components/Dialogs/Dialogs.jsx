@@ -7,16 +7,18 @@ import { addMessageActionCreator, onMessageChangeActionCreator } from '../../red
 
 const Dialogs = (props) => {
 
-    let messagesElements = props.dialogsPage.messages.map(m => <MessageItem message={m.message} id={m.id} />)
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
+    let state = props.dialogsPage
+
+    let messagesElements = state.messages.map(m => <MessageItem message={m.message} id={m.id} />)
+    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator())
+        props.addMessage()
     }
 
     let onMessageChange = (e) => {
         let text = e.target.value
-        props.dispatch(onMessageChangeActionCreator(text))
+        props.onMessageChange(text)
     }
 
     return(
@@ -36,7 +38,6 @@ const Dialogs = (props) => {
                 <textarea className={style.textAreaMessage} onChange={onMessageChange} value={props.dialogsPage.newMessageText} />
                 <button className={style.btnAddNewMessage} onClick={addMessage}>Add message</button>
             </div>
-
         </div>
     )
 }

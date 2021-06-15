@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './DialogMessage.module.css'
 
-const MessageItem = (props) => {
+const DialogMessage = (props) => {
     return(
         <div className={style.messageItems}>
             <span className={style.messageRecipient}>
@@ -14,4 +14,4 @@ const MessageItem = (props) => {
     )
 }
 
-export default MessageItem
+export default DialogMessage
