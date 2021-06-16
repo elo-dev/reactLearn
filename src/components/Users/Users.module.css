@@ -1,0 +1,36 @@
+.usersSection{
+    margin: 0 auto;
+}
+
+.usersWrapper{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.usersFollow img{
+    width: 60px;
+}
+
+.usersFollow button{
+    display: block;
+    margin: 0 auto;
+}
+
+.usersInfo{
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    margin-left: 20px;
+}
+
+.usersLocation p:first-of-type{
+    padding-bottom: 20px;
+}
+
+.usersName p:first-of-type{
+    padding-bottom: 20px;
+}
