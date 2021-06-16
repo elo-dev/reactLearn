@@ -4,24 +4,22 @@ import style from './MyPosts.module.css'
 
 const MyPosts = (props) => {
 
-  let postsElements = props.posts.map(p => <Post message={p.message} like={p.like} />)
-
-  let currentValuePost = React.createRef()
+  let postsElements = props.posts.map(p => <Post key={p.id} message={p.message} like={p.like} />)
 
   let onAddPost = () => {
     props.addPost()
   }
 
-  let onPostChange = () => {
-    let text = currentValuePost.current.value
-    props.onPostChangeText(text)
+  let onPostChange = (e) => {
+    let text = e.target.value
+    props.onPostChange(text)
   }
 
     return (
         <div className={style.infoAboutMe}>
           <h2>My Posts</h2>
           <div className={style.createNewPost}>
-            <textarea className={style.textAreaNewPost} ref={currentValuePost} onChange={onPostChange} value={props.newPostText} />
+            <textarea className={style.textAreaNewPost} onChange={onPostChange} value={props.newPostText} />
             <button className={style.btnAddNewPost} onClick={onAddPost} >Add posts</button>
           </div>
           <div className={style.posts}>
