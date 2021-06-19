@@ -15,6 +15,7 @@ const Nav = (props) => {
                 <ul>
                     <li><NavLink activeClassName={style.linkTabs} to="/profile">Profile</NavLink></li>
                     <li><NavLink activeClassName={style.linkTabs} to="/dialogs">Message</NavLink></li>
+                    <li><NavLink activeClassName={style.linkTabs} to="/users">Users</NavLink></li>
                     <li><a>News</a></li>
                     <li><a>Music</a></li>
                     <li><a>Settings</a></li>
