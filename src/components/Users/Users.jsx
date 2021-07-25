@@ -1,4 +1,5 @@
 import React from 'react'
+import * as axios from 'axios'
 import style from './Users.module.css'
 import userPhoto from '../../assets/images/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png'
 import { NavLink } from 'react-router-dom'
@@ -25,8 +26,30 @@ let Users = (props) =>{
                         <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" />
                         </NavLink>
                         {u.followed 
-                        ? <button onClick={() => {props.unfollow(u.id)}}>Unfollow</button> 
-                        : <button onClick={() => {props.follow(u.id)}}>Follow</button>
+                        ? <button onClick={() => {
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                withCredentials: true,
+                                headers: {
+                                    "API-KEY": "0e5c0981-d3a9-4812-a1cb-d8d1f4461a03"
+                                }
+                            }).then(response => {
+                                if(response.data.resultCode === 0){
+                                    props.unfollow(u.id)
+                                    }
+                                })
+                            }}>Unfollow</button> 
+                        : <button onClick={() => {
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                    withCredentials: true,
+                                    headers: {
+                                        "API-KEY": "0e5c0981-d3a9-4812-a1cb-d8d1f4461a03"
+                                    }
+                                }).then(response => {
+                                if(response.data.resultCode === 0){
+                                    props.follow(u.id)
+                                    }
+                                })
+                            }}>Follow</button>
                         }
                     </div>
                     <div className={style.usersInfo}>
