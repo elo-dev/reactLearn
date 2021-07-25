@@ -1,11 +1,15 @@
 import React from 'react'
+import Preloader from '../../common/Preloader/Preloader'
 import style from './ProfileInfo.module.css'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if(!props.profile){
+    return <Preloader />
+  }
     return (
       <div>
         <div className={style.avatar}>
-          <img src="https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"></img>
+          <img src={props.profile.photos.large} />
         </div>
         <div>
           ava+descr

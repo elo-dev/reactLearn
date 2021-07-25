@@ -5,7 +5,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 const Profile = (props) => {
     return (
           <section className="profileWrapper">
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile} />
             <MyPostsContainer />
           </section>
     )
