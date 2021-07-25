@@ -1,8 +1,20 @@
 .header{
     grid-area: h;
+    display: flex;
+    justify-content: space-between;
 }
 
 .header img{
     margin: 0 auto;
     width: 66px;
+}
+
+.loginBlock a{
+    color: red;
+    font-size: 20px;
+}
+
+.profileName{
+    color: green;
+    font-size: 20px;
 }

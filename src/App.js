@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './components/Header/Header'
+import HeaderContainer from './components/Header/HeaderContainer';
 import NavContainer from './components/Navbar/NavContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="App-wrapper">
-        <Header />
+        <HeaderContainer />
         <NavContainer />
           <main className="App-wrapper-content">
             <Route path='/dialogs' render={() => <DialogsContainer />} />

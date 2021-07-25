@@ -2,3 +2,15 @@
     width: 120px;
     height: 120px;
 }
+
+.aboutMe .name{
+    color: cornflowerblue;
+    font-size: 20px;
+}
+
+.aboutMe .description{
+    max-width: 100px;
+    border: 1px dotted black;
+    padding: 5px;
+    font-size: 15px;
+}
