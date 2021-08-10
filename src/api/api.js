@@ -49,3 +49,10 @@ export const authAPI = {
         }).then(response => response.data)
     }
 }
+
+export const loginAPI = {
+    setLogin(){
+        return instance.post(`auth/login`, {
+        }).then(response => response.data)
+    }
+}

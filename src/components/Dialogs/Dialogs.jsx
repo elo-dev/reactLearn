@@ -3,6 +3,9 @@ import style from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from './DialogMessage/DialogMessage'
 import { Redirect } from 'react-router-dom'
+import { Field, Form } from 'react-final-form'
+import formControl from '../../hoc/formControl'
+import { composeValidators, maxLength, required } from '../../utils/validators/validators'
 
 const Dialogs = (props) => {
 
@@ -11,13 +14,8 @@ const Dialogs = (props) => {
     let messagesElements = state.messages.map(m => <MessageItem key={m.id} message={m.message} id={m.id} />)
     let dialogsElements = state.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id} />)
 
-    let addMessage = () => {
-        props.addMessage()
-    }
-
-    let onMessageChange = (e) => {
-        let text = e.target.value
-        props.onMessageChangeText(text)
+    let addMessage = (value) => {
+        props.addMessage(value.messageBody)
     }
 
     if(!props.isAuth) return <Redirect to={'/login'} />
@@ -36,10 +34,25 @@ const Dialogs = (props) => {
             </div>
 
             <div className={style.newMessageWrapper}>
-                <textarea className={style.textAreaMessage} onChange={onMessageChange} value={props.dialogsPage.newMessageText} />
-                <button className={style.btnAddNewMessage} onClick={addMessage}>Add message</button>
+                <MessageForm addMessage={addMessage} />
             </div>
         </div>
+    )
+}
+
+const MessageForm = (props) => {
+
+    const Textarea = formControl('textarea')
+
+    return(
+        <Form onSubmit={props.addMessage}>
+        {({handleSubmit, pristine, submitting}) => (
+            <form onSubmit={handleSubmit} >
+                <Field className={style.textAreaMessage} component={Textarea} placeholder={'Введите сообщение'} name={'messageBody'} validate={composeValidators(required, maxLength(100))} />
+                <button type={'submit'} disabled={pristine || submitting} className={style.btnAddNewMessage}>Отправить</button>
+            </form>
+        )}
+        </Form>
     )
 }
 
