@@ -1,13 +1,15 @@
 import { authAPI } from "../api/api"
-import { stopSubmit } from 'final-form'
+import { FORM_ERROR } from 'final-form'
 
 const SET_USER_DATA = 'SET_USER_DATA'
+const SET_ERRORS = 'SET_ERRORS'
 
 let initialState = {
   userId: null,
   email: null,
   login: null,
-  isAuth: false
+  isAuth: false,
+  errors: []
 }
 
 const authReducer = (state = initialState, action) => {
@@ -17,6 +19,11 @@ const authReducer = (state = initialState, action) => {
         return {
           ...state,
           ...action.payload
+        }
+      case SET_ERRORS:
+        return{
+          ...state,
+          errors: [...state.errors, action.error]
         }
       default: 
         return state
@@ -39,10 +46,20 @@ export const authUser = () => (dispatch) =>{
       })
 }
 
+export const setErrors = (error) => {
+  return{
+    type: SET_ERRORS,
+    error
+  }
+}
+
 export const loginUser = (email, password, rememberMe) => (dispatch) =>{
       authAPI.login(email, password, rememberMe).then(response => {
           if(response.data.resultCode === 0){
               dispatch(authUser())
+          } else {
+            let msgError = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
+            dispatch(setErrors(msgError))
           }
       })
 }

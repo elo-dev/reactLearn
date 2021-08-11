@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import formControl from '../../hoc/formControl'
 import { loginUser } from '../../redux/authReducer'
 import { composeValidators, required } from '../../utils/validators/validators'
+import style from './Login.module.css'
 
 const LoginForm = (props) => {
 
@@ -28,6 +29,7 @@ const LoginForm = (props) => {
                     <label>rememberMe</label>
                     <Field type={'checkbox'} name={'rememberMe'} component={Input} />
                 </div>
+                <strong className={style.fieldError}>{props.errors[0]}</strong>
                 <button type='submit' disabled={pristine || submitting}>Отправить</button>
             </form>
             )}
@@ -44,13 +46,14 @@ const Login = (props) => {
     return(
         <div>
             <h1>Login</h1>
-            <LoginForm loginUser={loginUser} onSubmit={onSubmit} isAuth={props.isAuth} />
+            <LoginForm onSubmit={onSubmit} errors={props.errors} isAuth={props.isAuth} />
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    errors: state.auth.errors
 })
 
 export default connect(mapStateToProps, {loginUser})(Login)
