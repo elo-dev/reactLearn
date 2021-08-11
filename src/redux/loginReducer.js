@@ -24,15 +24,4 @@ export const setLoginData = (email, password, rememberMe) => {
     }
 }
 
-export const loginUser = () => {
-    return (dispatch) =>{
-        loginAPI.setLogin().then(data => {
-            if(data.resultCode === 0){
-                let {email, password, rememberMe} = data.data
-                dispatch(setLoginData(email, password, rememberMe))
-            }
-        })
-    }
-}
-
 export default loginReducer
