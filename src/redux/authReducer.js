@@ -1,5 +1,4 @@
 import { authAPI } from "../api/api"
-import { FORM_ERROR } from 'final-form'
 
 const SET_USER_DATA = 'SET_USER_DATA'
 const SET_ERRORS = 'SET_ERRORS'
@@ -38,7 +37,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => {
 }
 
 export const authUser = () => (dispatch) =>{
-      authAPI.me().then(response => {
+      return authAPI.me().then(response => {
         if(response.data.resultCode === 0){
             let { id, login, email } = response.data.data
             dispatch(setAuthUserData(id, email, login, true))
