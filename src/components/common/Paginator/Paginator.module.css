@@ -1,0 +1,17 @@
+.pageCount{
+    width: 560px;
+    height: 35px;
+    border: 1px solid #C1C1C1;
+    overflow: auto;
+}
+
+.pageCount span{
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.selectedPage{
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+}

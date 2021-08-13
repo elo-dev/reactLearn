@@ -34,7 +34,7 @@ const Textarea = formControl('textarea')
     <Form onSubmit={props.addPost}>
       {({handleSubmit, submitting, pristine}) => (
       <form onSubmit={handleSubmit}>
-          <Field component={Textarea} name={'postBody'} validate={composeValidators(required, maxLength(10))} />
+          <Field component={Textarea} name={'postBody'} placeholder={'Напишите пост'} validate={composeValidators(required, maxLength(10))} />
           <button className={style.btnAddNewPost} disabled={pristine || submitting} type={'submit'}>Добавить пост</button>
       </form>
       )}
